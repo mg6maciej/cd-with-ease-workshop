@@ -25,4 +25,4 @@ notifications:
   slack: conference-chat:cxF2N6cMTY93bdpfxvHMltmg
 
 after_success:
-  - ./gradlew crashlyticsUploadDistributionDebug
+  - ./deploy_crashlytics_beta.sh

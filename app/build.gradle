@@ -26,6 +26,7 @@ android {
         versionCode 1
         versionName "1.0"
         ext.betaDistributionGroupAliases = 'anothergroup'
+        ext.betaDistributionReleaseNotesFilePath = "crashlytics_release_notes.txt"
     }
     buildTypes {
         release {
