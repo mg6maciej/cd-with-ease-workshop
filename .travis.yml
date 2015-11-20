@@ -11,6 +11,9 @@ android:
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-16
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_68d8df8817e5_key -iv $encrypted_68d8df8817e5_iv -in fabric.properties.enc -out app/fabric.properties -d
+
 before_script:
   - echo no | android create avd --force -n test -t android-16 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
@@ -20,3 +23,6 @@ before_script:
 
 notifications:
   slack: conference-chat:cxF2N6cMTY93bdpfxvHMltmg
+
+after_success:
+  - ./gradlew crashlyticsUploadDistributionDebug
